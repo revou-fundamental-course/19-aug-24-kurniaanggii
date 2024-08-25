@@ -1,1 +1,150 @@
 /* ini css */
+
+:root {
+  --primary: #f1dec6;
+  --bg: #ebe1d7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: #22c5c9;
+}
+
+/* navbar */
+nav {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  padding: 1.4rem 7%;
+  background-color: #99dadf;
+  border-bottom: 1px solid var(--primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.logo-icon {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #22aea8;
+}
+
+.logo-icon span {
+  color: #f0f7e9;
+}
+
+.nav-item a {
+  color: #f0f7e9;
+  display: inline-block;
+  font-size: 1.3rem;
+  margin: 0.1rem;
+}
+
+.nav-item a:hover {
+  color: var(--primary);
+}
+
+.nav-item a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.nav-item a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.navbar-extra a {
+  color: #f0f7e9;
+  margin: 0 0.5rem;
+}
+
+.navbar-extra a:hover {
+  color: var(--primary);
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+/* Media Queries */
+
+/* Laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+
+  #hamburger-menu{
+    display: inline-block;
+  }
+
+  .nav-item{
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: white;
+    width: 30rem;
+    height: 100vh;
+  }
+
+  .nav-item.active{
+    right: 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* banner */
+.banner-img {
+  height: 300px;
+  background-image: url(https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.profile-item {
+  height: 100px;
+  text-align: center;
+}
+
+.profile-img {
+  height: 50px;
+  background-image: url(https://cdn.pixabay.com/photo/2023/11/09/19/36/zoo-8378189_1280.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  width: 50px;
+}
