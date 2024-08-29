@@ -1,88 +1,70 @@
 // ini javascript
+//Javacript for responsive navigation menu
+const menuBtn = document.querySelector(".menu-btn");
+const navigation = document.querySelector(".navigation");
 
-// hamburger menu
-const navbarNav = document.querySelector(".nav-item");
+menuBtn.addEventListener("click", () => {
+  menuBtn.classList.toggle("active");
+  navigation.classList.toggle("active");
+});
 
-document.querySelector("#hamburger-menu").onclick = () => {
-  navbarNav.classList.toggle("active");
+//Javacript for video slider navigation
+const btns = document.querySelectorAll(".nav-btn");
+const slides = document.querySelectorAll(".video-slide");
+const contents = document.querySelectorAll(".content");
+
+var sliderNav = function (manual) {
+  btns.forEach((btn) => {
+    btn.classList.remove("active");
+  });
+
+  slides.forEach((slide) => {
+    slide.classList.remove("active");
+  });
+
+  contents.forEach((content) => {
+    content.classList.remove("active");
+  });
+
+  btns[manual].classList.add("active");
+  slides[manual].classList.add("active");
+  contents[manual].classList.add("active");
 };
 
-// close hamburger menu
-const hamburger = document.querySelector("#hamburger-menu");
-document.addEventListener("click", function (e) {
-  if (!hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
-    navbarNav.classList.remove("active");
-  }
+btns.forEach((btn, i) => {
+  btn.addEventListener("click", () => {
+    sliderNav(i);
+  });
 });
 
 // menampilkan nama sambutan
-let name = prompt("Halo, siapa nama Anda?", "");
-document.getElementById("name").innerHTML = name;
-
-// Slider image
-let sliders = document.querySelectorAll("slider");
-
-// var sliderNav = function (manual) {
-//   sliders[manual].classList.add("active");
-// };
-
-sliders.forEach(slider => {
-  slider.addEventListener("click", () => {
-    document.querySelectorAll('.slider-navigation .active').classList.remove('active');
-    slider.classList.add('active');
- let src = slider.getAttribute('data-src');
- document.querySelectorAll
-});
-});
-
-
-// Slider image
-let slideIndex = 1;
-showBanner(1);
-
-function nextSlide(n) {
-  showBanner((slideIndex += n));
+function replaceName() {
+  let name = prompt("Siapakah nama anda?", "");
+  document.getElementById("name").innerHTML = name;
 }
 
-function showBanner(indexBanner) {
-  let listImage = document.getElementsByClassName("banner-img");
-  if (indexBanner > listImage.length) slideIndex = 1;
-
-  let index = 0;
-  while (index < listImage.length) {
-    listImage[index].style.display = "none";
-    index++;
-  }
-
-  listImage[slideIndex - 1].style.display = "block";
-  console.log(listImage);
-}
-
-setInterval(function () {
-  nextSlide(1);
-}, 3000);
-
+replaceName();
 
 //menampilkan submit form
 function setSenderUI(nama, tanggalLahir, jenisKelamin, pesan) {
-    document.getElementById("sender-nama").innerHTML = nama;
-    document.getElementById("sender-tanggal-lahir").innerHTML = tanggalLahir;
-    document.getElementById("sender-jenis-kelamin").innerHTML = jenisKelamin;
-    document.getElementById("sender-pesan").innerHTML = pesan;
-  }
-  
-  //memvalidasi form jika kosong
-  function validateform() {
-    const nama = document.forms["message-form"]["nama"].value;
-    const tanggalLahir = document.forms["message-form"]["tanggal-lahir"].value;
-    const jenisKelamin = document.forms["message-form"]["jenis-kelamin"].value;
-    const pesan = document.forms["message-form"]["pesan"].value;
-  
-    if (nama == "" || tanggalLahir == "" || jenisKelamin == "" || pesan == "") {
-      alert("Tidak boleh ada yang kosong");
-      return false;
-    }
-  
-    setSenderUI(nama, tanggalLahir, jenisKelamin, pesan);
+  document.getElementById("sender-nama").innerHTML = nama;
+  document.getElementById("sender-tanggal-lahir").innerHTML = tanggalLahir;
+  document.getElementById("sender-jenis-kelamin").innerHTML = jenisKelamin;
+  document.getElementById("sender-pesan").innerHTML = pesan;
+}
+
+//memvalidasi form jika kosong
+function validateform() {
+  const nama = document.forms["message-form"]["nama"].value;
+  const tanggalLahir = document.forms["message-form"]["tanggal-lahir"].value;
+  const jenisKelamin = document.forms["message-form"]["jenis-kelamin"].value;
+  const pesan = document.forms["message-form"]["pesan"].value;
+
+  if (nama == "" || tanggalLahir == "" || jenisKelamin == "" || pesan == "") {
+    alert("Tidak boleh ada yang kosong");
     return false;
   }
+
+  setSenderUI(nama, tanggalLahir, jenisKelamin, pesan);
+  return false;
+}
