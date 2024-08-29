@@ -1,94 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-eidth, initial-scale=1.0" />
-    <title>Lampung Travel</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-eidth, initial-scale=1.0" />
 
-    <!-- Feather icons -->
-    <script src="https://unpkg.com/feather-icons"></script>
+  <title>Lampung Travel</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css\style.css" />
-  </head>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet" />
 
-  <body>
-    <!-- Navbar -->
-    <nav>
-      <a href="#" class="logo-icon">T<span>RAVEL</span></a>
+  <!-- Feather icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
 
-      <div class="nav-item">
-        <a href="#home">Home</a>
-        <a href="#about">Tentang kami</a>
-        <a href="#destinasi">Destinasi Favorit</a>
-        <a href="#help">Bantuan</a>
-      </div>
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
 
-      <div class="navbar-extra">
-        <a href="#" id="search"><i data-feather="search"></i></a>
-        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
-      </div>
-    </nav>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div>
+      <a href="#home" class="logo-icon">T<span>RAVEL</span></a>
+    </div>
 
-    <!-- Hero section -->
-    <section class="hero" id="home">
-        <main class="content">
-      <h1>Hello! Welcome to <span>Lampung</span></h1>
+    <div class="nav-item">
+      <a href="#home">Home</a>
+      <a href="#about">Tentang kami</a>
+      <a href="#destinasi">Destinasi Favorit</a>
+      <a href="#help">Bantuan</a>
+    </div>
+
+    <div class="navbar-extra">
+      <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+    </div>
+  </nav>
+
+  <!-- Hero section -->
+  <section class="hero" id="home">
+
+    <!-- image slider -->
+    <img class="slide" src="img/way-kambas.jpg"></img>
+    <img class="slide" src="img/danau-toba.jpg"></img>
+    <img class="slide" src="img/pantai-trikora.jpg"></img>
+    <img class="slide" src="img/pasar-apung.jpg"></img>
+    <div class="slider-navigation">
+      <span class="slider active" dara-src="img/way-kambas.jpg"></span>
+      <span class="slider" data-src="img/3.jpg"></span>
+      <span class="slider" data-src="img/5.webp"></span>
+      <span class="slider" data-src="img/1.jpg"></span>
+    </div>
+    <div class="content">
+      <h1>
+        Hello! <span id="name"> </span> Welcome to <span>Indonesia</span>
+      </h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
         molestiae.
       </p>
       <a href="#destinasi" class="cta">Explore Now!</a>
-    </main>
+      <button type="button" class="cta" onclick="nextSlide(1)">Next Slide</button>
+    </div>
+    
+
+
+  </section>
+
+  <!-- About section -->
+  <main>
+    <section id="about" class="about">
+      <h2>Tentang Kami</h2>
+      <section class="profile-container">
+        <div class="profile-item">
+          <div class="profile-img"></div>
+          <h2>Software Engineer</h2>
+        </div>
+
+        <div class="profile-item">
+          <div class="profile-img"></div>
+          <h2>Software Engineer</h2>
+        </div>
+
+        <div class="profile-item">
+          <div class="profile-img"></div>
+          <h2>Software Engineer</h2>
+        </div>
+      </section>
     </section>
 
-    <!-- About section -->
-    <main>
-      <section id="about" class="about">
-          <h2>Tentang Kami</h2>
-        <section class="profile-container">
-          <div class="profile-item">
-            <div class="profile-img"></div>
-            <h2>Software Engineer</h2>
-          </div>
+    <section>
+      <form></form>
 
-          <div class="profile-item">
-            <div class="profile-img"></div>
-            <h2>Software Engineer</h2>
-          </div>
+      <div></div>
+    </section>
+  </main>
 
-          <div class="profile-item">
-            <div class="profile-img"></div>
-            <h2>Software Engineer</h2>
-          </div>
-        </section>
-      </section>
+  <form>
+    <input type="text" placeholder="nama anda" id="name-input" />
+    <button id="submit">Kirim</button>
+  </form>
 
-      <section>
-        <form></form>
+  <footer>
+    <p>Made by :3</p>
+  </footer>
 
-        <div></div>
-      </section>
-    </main>
+  <!-- Feather icons -->
+  <script>
+    feather.replace();
+  </script>
 
-    <footer>
-      <p>Made by :3</p>
-    </footer>
+  <!-- Js -->
+  <script src="js/script.js"></script>
+</body>
 
-    <!-- Feather icons -->
-    <script>
-      feather.replace();
-    </script>
-
-    <!-- Js -->
-    <script src="js/script.js"></script>
-  </body>
 </html>
