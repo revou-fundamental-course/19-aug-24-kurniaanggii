@@ -97,10 +97,50 @@
     </section>
   </main>
 
-  <form>
-    <input type="text" placeholder="nama anda" id="name-input" />
-    <button id="submit">Kirim</button>
-  </form>
+  <section id="message">
+    <header>
+      <h1>Message Us</h1>
+    </header>
+
+    <div class="form-container">
+      <div class="form">
+        <form name="message-form" onsubmit="return validateform()">
+          Nama: <input placeholder="Nama" type="text" name="nama" /><br />
+
+          Tanggal Lahir :
+          <input type="date" name="tanggal-lahir" /><br />
+
+          Jenis Kelamin: <br />
+          <input
+            type="radio"
+            id="laki-laki"
+            name="jenis-kelamin"
+            value="laki-laki"
+          />
+          <label for="laki-laki">Laki-laki</label>
+          <input
+            type="radio"
+            id="peremuan"
+            name="jenis-kelamin"
+            value="perempuan"
+          />
+          <label for="perempuan">Perempuan</label><br />
+
+          Pesan:
+          <textarea placeholder="Pesan anda" name="pesan"></textarea><br />
+
+          <input type="submit" value="submit" />
+        </form>
+      </div>
+
+      <div class="output-form">
+        <p>Nama: <span id="sender-nama"></span></p>
+        <p>Tanggal Lahir: <span id="sender-tanggal-lahir"></span></p>
+        <p>Jenis Kelamin: <span id="sender-jenis-kelamin"></span></p>
+        <p>Pesan: <span id="sender-pesan"></span></p>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <p>Made by :3</p>
