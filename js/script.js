@@ -10,8 +10,11 @@ menuBtn.addEventListener("click", () => {
 
 //Javacript for video slider navigation
 const btns = document.querySelectorAll(".nav-btn");
-const slides = document.querySelectorAll(".video-slide");
+const slides = document.querySelectorAll(".img-slide");
 const contents = document.querySelectorAll(".content");
+
+let currentSlide = 0;
+const slideInterval = 3000; // Durasi waktu dalam milidetik (3 detik)
 
 var sliderNav = function (manual) {
   btns.forEach((btn) => {
@@ -34,8 +37,22 @@ var sliderNav = function (manual) {
 btns.forEach((btn, i) => {
   btn.addEventListener("click", () => {
     sliderNav(i);
+    currentSlide = i; // Update slide saat tombol diklik
+    resetAutoSlide(); // Reset interval saat pengguna melakukan slide manual
   });
 });
+
+const autoSlide = () => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  sliderNav(currentSlide);
+};
+
+let autoSlideInterval = setInterval(autoSlide, slideInterval);
+
+const resetAutoSlide = () => {
+  clearInterval(autoSlideInterval);
+  autoSlideInterval = setInterval(autoSlide, slideInterval);
+};
 
 // menampilkan nama sambutan
 function replaceName() {
@@ -45,26 +62,29 @@ function replaceName() {
 
 replaceName();
 
-//menampilkan submit form
-function setSenderUI(nama, tanggalLahir, jenisKelamin, pesan) {
-  document.getElementById("sender-nama").innerHTML = nama;
-  document.getElementById("sender-tanggal-lahir").innerHTML = tanggalLahir;
-  document.getElementById("sender-jenis-kelamin").innerHTML = jenisKelamin;
-  document.getElementById("sender-pesan").innerHTML = pesan;
-}
-
-//memvalidasi form jika kosong
 function validateform() {
-  const nama = document.forms["message-form"]["nama"].value;
-  const tanggalLahir = document.forms["message-form"]["tanggal-lahir"].value;
-  const jenisKelamin = document.forms["message-form"]["jenis-kelamin"].value;
-  const pesan = document.forms["message-form"]["pesan"].value;
+  // Ambil elemen form dan elemen output
+  const form = document.forms["message-form"];
+  const outputNama = document.getElementById("sender-nama");
+  const outputJenisKelamin = document.getElementById("sender-jenis-kelamin");
+  const outputPesan = document.getElementById("sender-pesan");
 
-  if (nama == "" || tanggalLahir == "" || jenisKelamin == "" || pesan == "") {
-    alert("Tidak boleh ada yang kosong");
+  // Ambil nilai dari form
+  const nama = form["nama"].value.trim();
+  const jenisKelamin = form["jenis-kelamin"].value.trim();
+  const pesan = form["pesan"].value.trim();
+
+  // Validasi: pastikan semua field terisi
+  if (!nama  || !jenisKelamin || !pesan) {
+    alert("Semua field harus diisi!");
     return false;
   }
 
-  setSenderUI(nama, tanggalLahir, jenisKelamin, pesan);
+  // Tampilkan nilai di output
+  outputNama.textContent = nama;
+  outputJenisKelamin.textContent = jenisKelamin;
+  outputPesan.textContent = pesan;
+
+  // Mencegah form dari submit default
   return false;
 }
